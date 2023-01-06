@@ -126,6 +126,7 @@ Para la implementación del CI/CD de la aplicación se utilizan los siguientes P
 *	**PIPELINE-FULL-CD**: este pipeline es el encargado de enganchar los pipelines de staging y production,  con el objetivo de completar un ciclo de despliegue continuo desde un commit al repositorio de manera automática.
 
 
+
 ## Limpieza
 
 Para borrar la apliación y eliminar los stacks creados ejecutar los siguientes comandos:
