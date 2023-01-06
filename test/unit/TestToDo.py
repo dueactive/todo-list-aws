@@ -103,6 +103,17 @@ class TestDatabaseFunctions(unittest.TestCase):
             self.text,
             responseGet['text'])
         print ('End: test_get_todo')
+        
+    def test_get_todo_error(self):
+        print ('---------------------')
+        print ('Start: test_get_todo_error')
+        # Testing file functions
+        from src.todoList import get_item
+        # Table mock
+        self.assertRaises(Exception, get_item("", self.dynamodb))
+        self.assertRaises(Exception, get_item("", self.dynamodb))
+        print ('End: test_get_todo_error')
+        
     
     def test_list_todo(self):
         print ('---------------------')
@@ -118,6 +129,16 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertTrue(len(result) == 1)
         self.assertTrue(result[0]['text'] == self.text)
         print ('End: test_list_todo')
+        
+        
+    def test_list_todo_error(self):
+        print('---------------------')
+        print('Start: test_list_todo_error')
+        # Testing file functions
+        from src.todoList import get_items
+        # Table mock
+        self.assertRaises(Exception, get_items("", self.dynamodb))
+        print('End: test_list_todo_error')
 
 
     def test_update_todo(self):
