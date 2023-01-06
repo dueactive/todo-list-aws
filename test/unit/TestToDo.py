@@ -104,7 +104,7 @@ class TestDatabaseFunctions(unittest.TestCase):
             responseGet['text'])
         print ('End: test_get_todo')
         
-        
+     
     
     def test_list_todo(self):
         print ('---------------------')
@@ -120,6 +120,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertTrue(len(result) == 1)
         self.assertTrue(result[0]['text'] == self.text)
         print ('End: test_list_todo')
+        
         
 
 
