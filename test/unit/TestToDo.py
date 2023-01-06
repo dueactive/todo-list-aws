@@ -141,6 +141,16 @@ class TestDatabaseFunctions(unittest.TestCase):
         # Table mock
         self.assertRaises(Exception, get_items("", self.dynamodb))
         print('End: test_list_todo_error')
+        
+        
+    def test_list_todo_error_80(self):
+        print('---------------------')
+        print('Start: test_list_todo_error_80')
+        # Testing file functions
+        from src.todoList import get_items
+        # Table mock
+        self.assertRaises(Exception, get_items("", self.dynamodb))
+        print('End: test_list_todo_error_80') 
 
     def test_update_todo(self):
         print ('---------------------')
