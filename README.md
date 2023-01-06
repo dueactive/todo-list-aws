@@ -34,6 +34,7 @@ sam deploy --guided
 
 El despliegue de la aplicación empaqueta, publicará en un bucket s3 el artefacto y desplegará la aplicación en AWS. Solicitará la siguiente información
 
+
 * **Stack Name**: El nombre del stack que desplegará en CloudFormation. Debe ser único
 * **AWS Region**: La región en la que se desea publicar la Aplicación.
 * **Confirm changes before deploy**: Si se indica "yes" se solicitará confirmación antes del despliegue si se encuentran cambios 
@@ -126,6 +127,7 @@ Para la implementación del CI/CD de la aplicación se utilizan los siguientes P
 *	**PIPELINE-FULL-CD**: este pipeline es el encargado de enganchar los pipelines de staging y production,  con el objetivo de completar un ciclo de despliegue continuo desde un commit al repositorio de manera automática.
 
 
+
 ## Limpieza
 
 Para borrar la apliación y eliminar los stacks creados ejecutar los siguientes comandos:
@@ -134,4 +136,3 @@ Para borrar la apliación y eliminar los stacks creados ejecutar los siguientes 
 aws cloudformation delete-stack --stack-name todo-list-aws-staging
 aws cloudformation delete-stack --stack-name todo-list-aws-production
 ```
-
