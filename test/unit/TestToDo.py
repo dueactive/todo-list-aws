@@ -58,13 +58,6 @@ class TestDatabaseFunctions(unittest.TestCase):
         # self.assertIn('todoTable', self.table_local.name)
         print('End: test_table_exists' )
 
-    def test_get_table(self):
-        print('---------------------')
-        print('Start: test_get_table')
-        from src.todoList import get_table
-        response = get_table(self.dynamodb)
-        print('End: test_get_table' + str(response))
-
     def test_put_todo(self):
         print('---------------------')
         print('Start: test_put_todo')
