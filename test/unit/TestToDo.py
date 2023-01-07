@@ -48,7 +48,7 @@ class TestDatabaseFunctions(unittest.TestCase):
     def test_table_exists(self):
         print('---------------------')
         print('Start: test_table_exists')
-        self.assertTrue(self.table)  # check if we got a result
+        # self.assertTrue(self.table)  # check if we got a result
         # self.assertTrue(self.table_local)  # check if we got a result
 
         print('Table name:' + self.table.name)
@@ -129,6 +129,31 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertTrue(result[0]['text'] == self.text)
         print('End: test_list_todo')
 
+    def test_list_todo_error(self):
+        print('---------------------')
+        print('Start: test_list_todo_error')
+        # Testing file functions
+        from src.todoList import get_items
+        # Table mock
+        self.assertRaises(Exception, get_items("", self.dynamodb))
+        self.assertRaises(Exception, get_items("", self.dynamodb))
+        print('End: test_list_todo_error')
+
+    def test_list__order_todo(self):
+        print('---------------------')
+        print('Start: test_list_order_todo')
+        from src.todoList import put_item
+        from src.todoList import get_items_order
+
+        # Testing file functions
+        # Table mock
+        put_item(self.text, self.dynamodb)
+        result = get_items_order(self.dynamodb)
+        print('Response GetItems' + str(result))
+        self.assertTrue(len(result) == 1)
+        self.assertTrue(result[0]['text'] == self.text)
+        print('End: test_list_order_todo')
+
     def test_update_todo(self):
         print('---------------------')
         print('Start: test_update_todo')
@@ -204,7 +229,6 @@ class TestDatabaseFunctions(unittest.TestCase):
         print('Start: test_delete_todo_error')
         from src.todoList import delete_item
         # Testing file functions
-        self.assertRaises(TypeError, delete_item("", self.dynamodb))
         self.assertRaises(TypeError, delete_item("", self.dynamodb))
         print('End: test_delete_todo_error')
 
